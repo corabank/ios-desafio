@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Modules/Batata/NetworkService.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Modules/Resources/Resources.xcodeproj">
    </FileRef>
    <FileRef

@@ -1,4 +1,5 @@
 import Foundation
+import NetworkService
 
 final class LoginViewModel {
     private weak var view: LoginViewProtocol?
@@ -14,6 +15,8 @@ extension LoginViewModel: LoginViewModelProtocol {
     
     func set(coordinator: LoginCoordinatorProtocol) {
         self.coordinator = coordinator
+        
+        NetworkService.start()
     }
 }
 
