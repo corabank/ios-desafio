@@ -1,36 +1,52 @@
-<div align="center">
+# Desafio Técnico iOS
 
-  <img src="https://user-images.githubusercontent.com/55195343/153007587-318033ab-05d7-402a-b2aa-2a1ec0f69717.png" width="100" height="100">
+## Sobre o projeto
 
-# Desafio iOS
+Este repositório contém o desafio técnico para candidatos à posição de desenvolvedor iOS em nosso time. O objetivo inicial é fornecer uma tela de login funcional. Ao inserir um usuário e senha válidos, o candidato será direcionado para uma tela em branco. Durante o teste, explicaremos o que gostaríamos que fosse desenvolvido nessa tela.
 
- </div>
-  
-O desafio é bem simples. Para participar, basta criar um fork deste repositório e quando finalizar o desenvolvimento, abrir um merge request que iremos avaliar.
+Não se preocupe com o layout das telas seguintes, tudo isso será fornecido conforme a necessidade durante o desafio.
 
-Abaixo, temos 3 referências de fluxos a serem implementados… cada uma com uma complexidade. Escolha a que melhor se encaixe com seu nível técnico :)
+## Como rodar o app
 
-Para acessar os links abaixo é preciso ter uma conta no Figma. Caso não tenha, é só criar uma com algum e-mail pessoal.
+Para rodar o aplicativo em sua máquina local, siga os passos abaixo:
 
-## Referências
+1. Clone este repositório:
+   
+```bash
+   git clone https://github.com/corabank/ios-challenge.git
+```
 
-[Referência 1](https://www.figma.com/file/Bf6ul6YwCl7LYgQstchC8Z/Desafio-iOS-%7C-Junior---Pleno?node-id=0%3A1)
+2. Navegue até o diretório do projeto:
+   
+```bash
+   cd [PATH_DO_PROJETO]
+```
+ 
+3. [Próximos passos...]:
+   
+```bash
+   [COMANDOS_NECESSÁRIOS]
+```
 
-[Referência 2](https://www.figma.com/file/GQx9gkblXwiGp44bn1C3AF/Desafio-iOS-%7C-Pleno---Senior?node-id=0%3A1)
+## Componentes utilizados
 
-[Referência 3](https://www.figma.com/file/22Q1QhHeIN9EOZwUesWdF9/Desafio-iOS-%7C-Senior---Especialista?node-id=0%3A1)
+O projeto usa alguns componentes e bibliotecas que ajudam a estruturar e facilitar o desenvolvimento. Eles incluem:
+- Networking: [Descritivo sobre a camada que vamos criar].
+- Design Systems (DS): [Descritivo sobre o mini DS que vamos usar].
+- Sugars: [Descritivo sobre os sugars de criação de constraints].
+- ...
+
+## O que esperar do desafio técnico
+
+Esperamos que você se familiarize com as implementações que temos nesse repositório. Navegue pelos arquivos, entenda o que já está implementado e como está implementado. Prepare-se para estar com o projeto configurado e rodando no dia do teste, faremos a codificação em par, e você será o piloto.
+
+Temos uma lista com diversas funcionalidades a serem implementadas nesse projeto, propositalmente simulando um backlog, e no dia escolheremos uma (ou mais) dessas funcionalidades para desenvolvermos juntos.
+
+O objetivo é avaliar suas habilidades em:
+- Implementação de layouts responsivos e intuitivos.
+- Integração com APIs RESTful.
+- Gerenciamento de estados e armazenamento de dados.
+- Boas práticas de codificação e estruturação de projetos.
 
 
-PS: Não precisa se preocupar em consumir nenhuma API. Pode criar mocks para as requisições.
-
-## O que precisa ter no projeto
-- Boa organização de código
-- Ter pelo menos um pattern de apresentação definido (MVC, MVVM, MVP, Clean Swift…)
-- Ter pelo menos um tipo de teste unitário
-- Teste de Snapshot
-- View Code
-- Boa estruturação de layout
-- O máximo possível de APIs nativas
-
-## Importante
-Se surgir qualquer dúvida durante o desenvolvimento, não hesite em perguntar! Pode adicionar um comentário aqui mesmo no repositório que nosso time vai estar pronto a lhe auxiliar 😊
+Estamos ansiosos para ver como você abordará o desafio!
