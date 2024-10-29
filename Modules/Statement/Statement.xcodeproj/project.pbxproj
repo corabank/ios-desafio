@@ -48,6 +48,8 @@
 		57F131FE281D556B002CB01E /* ViewCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57F131FC281D556B002CB01E /* ViewCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57F13200281D5579002CB01E /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F131FF281D5579002CB01E /* Resources.framework */; };
 		57F13201281D5579002CB01E /* Resources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57F131FF281D5579002CB01E /* Resources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE7B9AF02CD18F7E00FB43AE /* StatementDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B9AEF2CD18F7E00FB43AE /* StatementDetailService.swift */; };
+		BE7B9AF32CD18F8E00FB43AE /* StatementListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B9AF22CD18F8E00FB43AE /* StatementListService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		57F131F8281D555D002CB01E /* Components.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Components.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F131FC281D556B002CB01E /* ViewCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ViewCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F131FF281D5579002CB01E /* Resources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7B9AEF2CD18F7E00FB43AE /* StatementDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementDetailService.swift; sourceTree = "<group>"; };
+		BE7B9AF22CD18F8E00FB43AE /* StatementListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementListService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 		57142E2528182A17005DFFA6 /* StatementList */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B9AF12CD18F8600FB43AE /* Service */,
 				57142E3F2818421A005DFFA6 /* DataModels */,
 				57142E3A281840C3005DFFA6 /* DataSource */,
 				57142E2828182A34005DFFA6 /* Coordinator */,
@@ -291,6 +296,7 @@
 		57C36074281D51E400F84358 /* StatementDetail */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B9AEB2CD18F6400FB43AE /* Service */,
 				57C36077281D524000F84358 /* Coordinator */,
 				57C36076281D523900F84358 /* ViewModel */,
 				57C36075281D523300F84358 /* View */,
@@ -335,6 +341,22 @@
 				57F131F8281D555D002CB01E /* Components.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE7B9AEB2CD18F6400FB43AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B9AEF2CD18F7E00FB43AE /* StatementDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BE7B9AF12CD18F8600FB43AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B9AF22CD18F8E00FB43AE /* StatementListService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +473,7 @@
 				573B420B281F274900729C3A /* StatementSegmentControlDelegate.swift in Sources */,
 				5737623C281DAFBB00B6C92D /* Date.swift in Sources */,
 				5737623A281DAED800B6C92D /* Float.swift in Sources */,
+				BE7B9AF32CD18F8E00FB43AE /* StatementListService.swift in Sources */,
 				57C36080281D528B00F84358 /* StatementDetailViewModel.swift in Sources */,
 				57C36084281D52AA00F84358 /* StatementDetailCoordinator.swift in Sources */,
 				57142E3C281840DA005DFFA6 /* StatementDataSourceProtocol.swift in Sources */,
@@ -468,6 +491,7 @@
 				570CA52E281C19FC007C318A /* StatementTableSection.swift in Sources */,
 				579BFD75281B38A1007083EC /* Person.swift in Sources */,
 				57142E3528182B3A005DFFA6 /* StatementViewModelProtocol.swift in Sources */,
+				BE7B9AF02CD18F7E00FB43AE /* StatementDetailService.swift in Sources */,
 				579BFD78281B4943007083EC /* StatementItemCell.swift in Sources */,
 				579C5593281EBC2D00566C5A /* MultiLabelSection.swift in Sources */,
 				570CA52C281C1943007C318A /* StatementViewTableSection.swift in Sources */,

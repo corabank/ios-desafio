@@ -15,8 +15,6 @@ extension LoginViewModel: LoginViewModelProtocol {
     
     func set(coordinator: LoginCoordinatorProtocol) {
         self.coordinator = coordinator
-        
-        NetworkService.start()
     }
 }
 

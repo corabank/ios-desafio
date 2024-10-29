@@ -47,6 +47,7 @@
 		57787D78281DFA16001D008D /* PassFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57787D77281DFA16001D008D /* PassFormTests.swift */; };
 		5784EB002819B78800B215A1 /* Resources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5784EAFF2819B78800B215A1 /* Resources.framework */; };
 		5784EB012819B78800B215A1 /* Resources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5784EAFF2819B78800B215A1 /* Resources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE7B9AEE2CD18F7600FB43AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B9AED2CD18F7600FB43AE /* LoginService.swift */; };
 		BEB75E322CD02DA800E7FDEC /* NetworkService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB75E312CD02DA800E7FDEC /* NetworkService.framework */; };
 		BEB75E332CD02DA800E7FDEC /* NetworkService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEB75E312CD02DA800E7FDEC /* NetworkService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		57787D75281DF908001D008D /* PassFormCoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassFormCoordinatorMock.swift; sourceTree = "<group>"; };
 		57787D77281DFA16001D008D /* PassFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassFormTests.swift; sourceTree = "<group>"; };
 		5784EAFF2819B78800B215A1 /* Resources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Resources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7B9AED2CD18F7600FB43AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		BEB75E2C2CD02B1700E7FDEC /* Batata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Batata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB75E312CD02DA800E7FDEC /* NetworkService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 		57142DFE28181646005DFFA6 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				BE7B9AEC2CD18F6E00FB43AE /* Service */,
 				57340FE6281767410070804E /* ViewModel */,
 				57340FE5281767300070804E /* View */,
 				57340FE4281767130070804E /* Coordinator */,
@@ -358,6 +361,14 @@
 			path = PasswordForm;
 			sourceTree = "<group>";
 		};
+		BE7B9AEC2CD18F6E00FB43AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B9AED2CD18F7600FB43AE /* LoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -486,6 +497,7 @@
 				57142E05281818F0005DFFA6 /* CPFFormViewProtocol.swift in Sources */,
 				57142E0928181909005DFFA6 /* CPFFormViewModel.swift in Sources */,
 				57142E1828182742005DFFA6 /* PassFormView.swift in Sources */,
+				BE7B9AEE2CD18F7600FB43AE /* LoginService.swift in Sources */,
 				57142E1028181DB0005DFFA6 /* CPFFormCoordinator.swift in Sources */,
 				57340FE82817675A0070804E /* LoginCoordinatorProtocol.swift in Sources */,
 				5734102028176E260070804E /* LoginViewDelegate.swift in Sources */,

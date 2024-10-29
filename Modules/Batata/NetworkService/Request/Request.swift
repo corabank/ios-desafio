@@ -1,12 +1,12 @@
 import Foundation
 
-protocol Request {
+public protocol Request {
     var method: HTTPMethod { get }
     var endpoint: String { get }
     var parameters: [URLQueryItem] { get }
 }
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get = "GET",
          post = "POST"
 }
