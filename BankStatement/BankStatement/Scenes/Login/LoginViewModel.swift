@@ -1,8 +1,12 @@
-//
-//  LoginViewModel.swift
-//  BankStatement
-//
-//  Created by henrique augusto on 30/10/24.
-//
-
 import Foundation
+
+protocol LoginViewModelProtocol {
+    func login(document: String, password: String)
+}
+
+final class LoginViewModel: LoginViewModelProtocol {
+    
+    func login(document: String, password: String) {
+        
+    }
+}
