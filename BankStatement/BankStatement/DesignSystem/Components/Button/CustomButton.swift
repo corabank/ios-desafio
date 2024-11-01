@@ -1,5 +1,19 @@
 import UIKit
 
+enum CustomButtonBuilder {
+    static func build(size: ButtonSize,
+                      style: ButtonStyle,
+                      iconPosition: IconPosition,
+                      title: String,
+                      icon: UIImage? = nil) -> CustomButton {
+        CustomButton(size: size,
+                     style: style,
+                     iconPosition: iconPosition,
+                     title: title,
+                     icon: icon)
+    }
+}
+
 final class CustomButton: UIButton {
     private let size: ButtonSizeProtocol
     private let style: ButtonStyleProtocol
@@ -9,7 +23,7 @@ final class CustomButton: UIButton {
          style: ButtonStyleProtocol,
          iconPosition: IconPositionProtocol,
          title: String,
-         icon: UIImage? = nil) {
+         icon: UIImage?) {
         self.size = size
         self.style = style
         self.iconPosition = iconPosition
