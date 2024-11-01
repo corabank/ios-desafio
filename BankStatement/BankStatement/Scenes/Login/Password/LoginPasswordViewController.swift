@@ -53,6 +53,42 @@ final class LoginPasswordViewController: UIViewController {
     }
 }
 
+extension LoginPasswordViewController: ViewConfiguration {
+    func configViews() {
+        view.backgroundColor = .white
+    }
+    
+    func buildViews() {
+        [titleLabel,
+         textView,
+         subtitleLabel,
+         actionButton].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            textView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 24),
+            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            subtitleLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 24),
+            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 24),
+            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24)
+        ])
+    }
+}
+
 extension LoginPasswordViewController: UITextViewDelegate {
     
 }
