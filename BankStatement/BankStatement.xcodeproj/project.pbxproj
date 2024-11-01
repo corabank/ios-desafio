@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8725E2BF2CD505A5001E1604 /* CoraClient in Frameworks */ = {isa = PBXBuildFile; productRef = 8725E2BE2CD505A5001E1604 /* CoraClient */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BEA85F4D2CD27DA900EC01F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -33,7 +37,7 @@
 		BEA85F5E2CD27DA900EC01F6 /* Exceptions for "BankStatement" folder in "BankStatement" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Root/Info.plist,
 			);
 			target = BEA85F352CD27DA700EC01F6 /* BankStatement */;
 		};
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8725E2BF2CD505A5001E1604 /* CoraClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,12 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8725E2BD2CD505A5001E1604 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BEA85F2D2CD27DA700EC01F6 = {
 			isa = PBXGroup;
 			children = (
 				BEA85F382CD27DA700EC01F6 /* BankStatement */,
 				BEA85F4F2CD27DA900EC01F6 /* BankStatementTests */,
 				BEA85F592CD27DA900EC01F6 /* BankStatementUITests */,
+				8725E2BD2CD505A5001E1604 /* Frameworks */,
 				BEA85F372CD27DA700EC01F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,6 +138,7 @@
 			);
 			name = BankStatement;
 			packageProductDependencies = (
+				8725E2BE2CD505A5001E1604 /* CoraClient */,
 			);
 			productName = BankStatement;
 			productReference = BEA85F362CD27DA700EC01F6 /* BankStatement.app */;
@@ -208,6 +222,9 @@
 			);
 			mainGroup = BEA85F2D2CD27DA700EC01F6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8725E2BC2CD5055B001E1604 /* XCLocalSwiftPackageReference "Modules/CoraClient" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BEA85F372CD27DA700EC01F6 /* Products */;
 			projectDirPath = "";
@@ -291,10 +308,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7Z9QM9X35V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BankStatement/Info.plist;
+				INFOPLIST_FILE = BankStatement/Root/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -319,10 +335,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7Z9QM9X35V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BankStatement/Info.plist;
+				INFOPLIST_FILE = BankStatement/Root/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -569,6 +584,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		8725E2BC2CD5055B001E1604 /* XCLocalSwiftPackageReference "Modules/CoraClient" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/CoraClient;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8725E2BE2CD505A5001E1604 /* CoraClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8725E2BC2CD5055B001E1604 /* XCLocalSwiftPackageReference "Modules/CoraClient" */;
+			productName = CoraClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BEA85F2E2CD27DA700EC01F6 /* Project object */;
 }
