@@ -16,7 +16,7 @@ final class ApiClient: ApiClientProtocol {
     
     func fetch<T: Decodable>(request: RequestProtocol) async throws -> T {
         guard let url = URL(string: request.path) else {
-            throw ApiError.invalidData
+            throw ApiError.notFound
         }
         
         let (data, _) = try await urlSession.data(from: url, delegate: nil)
