@@ -21,7 +21,7 @@ final class ApiClientTest {
     private lazy var apiClient = ApiClient(urlSession: mockSession)
     private let mockSession = MockURLSession()
     
-    @Test("Fetch Data", arguments: TestCase.titles)
+    @Test("Fetch Data", .tags(.apiClient), arguments: TestCase.titles)
     func fetchData(testCase: String) async throws {
         
         let testCase = try #require(TestCase(rawValue: testCase))
