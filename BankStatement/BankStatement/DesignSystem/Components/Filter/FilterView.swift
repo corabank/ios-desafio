@@ -28,9 +28,9 @@ enum FilterBuilder {
 }
 
 private final class FilterView: UIView {
-    private var items: [String]
+    private var items: [String],
+                selectedItem: Int
     private let displayOption: FilterDisplayOption
-    private var selectedItem: Int
     private weak var delegate: FilterDelegateProtocol?
 
     private lazy var contentStack: UIStackView = {
