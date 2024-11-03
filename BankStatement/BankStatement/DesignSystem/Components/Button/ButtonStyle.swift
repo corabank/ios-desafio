@@ -26,18 +26,21 @@ enum ButtonSize: ButtonSizeProtocol {
 }
 
 enum ButtonStyle: ButtonStyleProtocol {
-    case primary, secondary
+    case primary,
+         secondary,
+         disabled
 
     var backgroundColor: UIColor {
         switch self {
         case .primary: return UIColor(named: Colors.primary.rawValue) ?? .systemPink
         case .secondary: return UIColor(named: Colors.white.rawValue) ?? .white
+        case .disabled: return UIColor(named: Colors.grayTwo.rawValue) ?? .systemGray2
         }
     }
 
     var titleColor: UIColor {
         switch self {
-        case .primary: return UIColor(named: Colors.white.rawValue) ?? .white
+        case .primary, .disabled: return UIColor(named: Colors.white.rawValue) ?? .white
         case .secondary: return UIColor(named: Colors.primary.rawValue) ?? .systemPink
         }
     }
