@@ -130,7 +130,10 @@ extension FilterView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FilterCell.self), for: indexPath) as! FilterCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(FilterCell.self), for: indexPath) as? FilterCell else {
+            return UICollectionViewCell()
+        }
+
         let isSelected = indexPath.item == selectedItem
         cell.setTitle(with: items[indexPath.item], isSelected: isSelected)
         return cell
