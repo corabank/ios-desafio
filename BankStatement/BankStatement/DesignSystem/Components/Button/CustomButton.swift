@@ -40,7 +40,7 @@ private final class CustomButton: UIButton {
         layer.cornerRadius = size.cornerRadius
         layer.borderColor = style.borderColor?.cgColor
         layer.borderWidth = style.borderColor == nil ? 0 : 1
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 14)
         iconPosition.configureIcon(in: self, icon: icon)
         tintColor = style.titleColor
 

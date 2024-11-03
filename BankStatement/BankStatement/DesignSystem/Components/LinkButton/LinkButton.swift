@@ -18,7 +18,7 @@ final class LinkButton: UIControl {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont(name: "Avenir-Heavy", size: 14)
         label.textAlignment = .center
         return label
     }()
