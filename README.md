@@ -42,7 +42,7 @@ O projeto que utilizaremos no desafio foi estruturado pensando na separação em
 
 Ao entrar para o nosso time você fará uso do nosso [Design System](https://brasil.uxdesign.cc/afinal-o-que-%C3%A9-design-system-448c257b0021) interno (o Arco) e decidimos trazer algo similar ao que você encontrará no dia a dia da Cora. A ideia dessa camada é entregar para você componentes prontos que podem ser reutilizados e customizados (até certo ponto) de acordo com a necessidade de suas telas. 
 
-*Dica:* durante o desafio, pense se algum componente visual que você está criando não faz sentido estar dentro do DS.
+*Dica:* durante o desafio, avalie se algum componente visual que você está criando não faz sentido estar dentro do DS.
 
 #### Infra
 
