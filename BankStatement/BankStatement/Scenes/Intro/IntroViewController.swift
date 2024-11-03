@@ -24,17 +24,17 @@ final class IntroViewController: UIViewController {
         return label
     }()
     
-    private lazy var registerButton = CustomButton.init(size: ButtonSize.large,
-                                                        style: ButtonStyle.secondary,
-                                                        iconPosition: IconPosition.right,
-                                                        title: "Quero fazer parte",
-                                                        icon: .icArrowRight)
-    
-    private lazy var signupButton = CustomButton.init(size: ButtonSize.medium,
-                                                       style: ButtonStyle.primary,
-                                                       iconPosition: IconPosition.none,
-                                                       title: "Já sou cliente",
-                                                       icon: nil)
+    private lazy var registerButton = CustomButtonBuilder.build(size: ButtonSize.large,
+                                                                style: ButtonStyle.secondary,
+                                                                iconPosition: IconPosition.right,
+                                                                title: "Quero fazer parte",
+                                                                icon: .icArrowRight)
+
+    private lazy var signupButton = CustomButtonBuilder.build(size: ButtonSize.medium,
+                                                             style: ButtonStyle.primary,
+                                                             iconPosition: IconPosition.none,
+                                                             title: "Já sou cliente",
+                                                             icon: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -5,7 +5,7 @@ enum CustomButtonBuilder {
                       style: ButtonStyle,
                       iconPosition: IconPosition,
                       title: String,
-                      icon: UIImage? = nil) -> CustomButton {
+                      icon: UIImage? = nil) -> UIButton {
         CustomButton(size: size,
                      style: style,
                      iconPosition: iconPosition,
@@ -14,7 +14,7 @@ enum CustomButtonBuilder {
     }
 }
 
-final class CustomButton: UIButton {
+private final class CustomButton: UIButton {
     private let size: ButtonSizeProtocol
     private let style: ButtonStyleProtocol
     private let iconPosition: IconPositionProtocol

@@ -29,11 +29,11 @@ final class LoginPasswordViewController: UIViewController {
         return label
     }()
     
-    private lazy var actionButton = CustomButton.init(size: ButtonSize.medium,
-                                                      style: ButtonStyle.primary,
-                                                      iconPosition: IconPosition.right,
-                                                      title: "Próximo",
-                                                      icon: .icArrowRight)
+    private lazy var actionButton = CustomButtonBuilder.build(size: ButtonSize.medium,
+                                                              style: ButtonStyle.primary,
+                                                              iconPosition: IconPosition.right,
+                                                              title: "Próximo",
+                                                              icon: .icArrowRight)
     
     private let viewModel: LoginViewModelProtocol
     
