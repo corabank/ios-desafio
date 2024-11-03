@@ -28,25 +28,63 @@ Para rodar o aplicativo em sua máquina local, siga os passos abaixo:
    [COMANDOS_NECESSÁRIOS]
 ```
 
-## Componentes utilizados
+## Estrutura do projeto
 
-O projeto usa alguns componentes e bibliotecas que ajudam a estruturar e facilitar o desenvolvimento. Eles incluem:
-- Networking: [Descritivo sobre a camada que vamos criar].
-- Design Systems (DS): [Descritivo sobre o mini DS que vamos usar].
-- Sugars: [Descritivo sobre os sugars de criação de constraints].
-- ...
+O projeto que utilizaremos no desafio foi estruturado pensando na separação em camadas (ainda que estas não estejam em projetos/targets separados nesse primeiro momento). Veja abaixo uma listagem das principais camadas e mais abaixo um detalhamento de cada uma delas: 
+- Design Systems (DS)
+- Infra
+- Root
+- Scenes
+- Rede [PEGAR NOME CORRETO]
+- Tests
+
+#### Design Systems (DS)
+
+Ao entrar para o nosso time você fará uso do nosso [Design System](https://brasil.uxdesign.cc/afinal-o-que-%C3%A9-design-system-448c257b0021) interno (o Arco) e decidimos trazer algo similar ao que você encontrará no dia a dia da Cora. A ideia dessa camada é entregar para você componentes prontos que podem ser reutilizados e customizados (até certo ponto) de acordo com a necessidade de suas telas. 
+
+*Dica:* durante o desafio, avalie se algum componente visual que você está criando não faz sentido estar dentro do DS.
+
+#### Infra
+
+Camada responsável pelo registro e gerenciamento de nossas dependências. Neste projeto seguimos a abordagem de criar um baixo acoplamento entre as camadas, e a camada de Infra será a responsável por gerenciar essa resolução de dependências. 
+
+*Dica:* caso não tenha familiaridade com injeção de dependência, sugerimos que dedique um tempo de estudo antes do desafio.
+
+#### Root
+
+Apenas uma pasta criada para organização, mas como o próprio nome sugere, ela contém os arquivos que fazem a inicialização da aplicação, ou seja, `AppDelegate.swift` e afins. 
+
+#### Scenes
+
+Aqui é onde você encontra as telas existentes e também onde você fará grande parte do seu código no dia do desafio. Estamos utilizando o padrão `MVVM`.
+
+*Dica:* não curtiu o padrão MVVM? Tem alguma sugestão de outro padrão? Traga para discussão durante o desafio... Só lembre que será uma discussão, logo, você precisa de embasamento para defender sua tese.
+
+#### Rede [PEGAR NOME CORRETO]
+
+Camada dedicada as chamadas de rede (REST). Como em toda empresa que começamos a trabalhar, sempre temos essa camada pronto e quase nunca há a necessidade de mudanças nela (salvo exceções de quando você começa o projeto do zero). Aqui o objetivo é exatamente este, não queremos ver você implementar manualmente algo que no dia a dia você terá pronto, então, estude o funcionamento e esteja pronto para usar com fluência no dia do desafio.
+
+*Dica:* caso veja possibilidades de melhoria nessa camada traga para discussão.
+
+#### Tests
+
+Temos dois diretórios dedicados aos testes unitários e de UI (apesar de não haver nenhum escrito neste). O nome é auto-explicativo, basicamente é aqui onde esperamos que você nos mostre como garante que seu código se comporta conforme o esperado. 
+
+*Dica:* aqui não testamos para cobrir linhas de código, nosso objetivo é validar comportamentos.
 
 ## O que esperar do desafio técnico
 
-Esperamos que você se familiarize com as implementações que temos nesse repositório. Navegue pelos arquivos, entenda o que já está implementado e como está implementado. Prepare-se para estar com o projeto configurado e rodando no dia do teste, faremos a codificação em par, e você será o piloto.
+Esperamos que você se familiarize com as implementações que temos nesse repositório. Navegue pelos arquivos, entenda o que já está implementado e como está implementado. Prepare-se para estar com o projeto configurado e rodando no dia do teste, faremos a codificação em par (talvez trio), e você será o piloto.
 
 Temos uma lista com diversas funcionalidades a serem implementadas nesse projeto, propositalmente simulando um backlog, e no dia escolheremos uma (ou mais) dessas funcionalidades para desenvolvermos juntos.
 
 O objetivo é avaliar suas habilidades em:
-- Implementação de layouts responsivos e intuitivos.
-- Integração com APIs RESTful.
-- Gerenciamento de estados e armazenamento de dados.
-- Boas práticas de codificação e estruturação de projetos.
+- Comunicação;
+- Linha de raciocínio durante a solução de problemas;
+- Implementação de layouts responsivos e intuitivos;
+- Integração com APIs RESTful;
+- Gerenciamento de estados e armazenamento de dados;
+- Boas práticas de codificação e estruturação de projetos;
 
 
 ### Estamos ansiosos para ver como você abordará o desafio!
