@@ -13,7 +13,8 @@ final class LoginViewModel: LoginViewModelProtocol {
     }
     
     private let coordinator: MainCoordinatorProtocol,
-                localRepository: LocalDataSource
+                localRepository: LocalDataSource,
+                service: LoginServiceProtocol
     
     private var document: String = "",
                 password: String = ""
@@ -21,6 +22,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     init(coordinator: MainCoordinatorProtocol, localRepository: LocalDataSource = LocalDataSource()) {
         self.coordinator = coordinator
         self.localRepository = localRepository
+        self.service = LoginServiceFactory.build()
     }
     
     func documentDidChange(text: String) {
@@ -37,6 +39,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     }
     
     func login() {
+        //passar o getdata pro service
         guard let document = localRepository.getData(key: LocalDataSourceKeys.document.rawValue) as? String else { return }
         
         guard !document.isEmpty, !password.isEmpty else {
@@ -46,6 +49,7 @@ final class LoginViewModel: LoginViewModelProtocol {
         
         print("\(document)")
         print("\(password)")
+        //chmar o service . fetch data
     }
     
     private func saveDocument() {
