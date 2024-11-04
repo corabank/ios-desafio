@@ -36,9 +36,9 @@ final class LoginPasswordViewController: UIViewController {
                                                               title: "Próximo",
                                                               icon: .icArrowRight)
     
-    private let viewModel: LoginViewModelProtocol
+    private let viewModel: LoginPasswordViewModelProtocol
     
-    init(viewModel: LoginViewModelProtocol) {
+    init(viewModel: LoginPasswordViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupViews()
@@ -56,7 +56,7 @@ final class LoginPasswordViewController: UIViewController {
     }
     
     @objc func nextButtonAction() {
-        viewModel.login()
+        viewModel.next()
     }
     
     @objc func textEditing() {
