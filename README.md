@@ -13,7 +13,7 @@ Para rodar o aplicativo em sua máquina local, siga os passos abaixo:
 1. Clone este repositório:
    
 ```bash
-   git clone https://github.com/corabank/ios-challenge.git
+   git clone github.com/corabank/ios-desafio.git
 ```
 
 2. Navegue até o diretório do projeto:
@@ -57,6 +57,16 @@ Apenas uma pasta criada para organização, mas como o próprio nome sugere, ela
 #### Scenes
 
 Aqui é onde você encontra as telas existentes e também onde você fará grande parte do seu código no dia do desafio. Estamos utilizando o padrão `MVVM`.
+
+Inicialmente entregaremos 3 telas funcionais, que serão a `Intro` a tela de `CPF` e a tela de `Senha`.
+
+<img width="300" alt="Intro" src="https://github.com/user-attachments/assets/a7b72ca9-3887-4598-a874-5a25e47d77ea">
+
+<img width="300" alt="CPF" src="https://github.com/user-attachments/assets/28653553-ce2f-4052-b73f-2515d2c936c1">
+
+<img width="300" alt="password" src="https://github.com/user-attachments/assets/02d8a154-b98a-427d-8b65-d2af95c80d97">
+<br />
+<br />
 
 *Dica:* não curtiu o padrão MVVM? Tem alguma sugestão de outro padrão? Traga para discussão durante o desafio... Só lembre que será uma discussão, logo, você precisa de embasamento para defender sua tese.
 
