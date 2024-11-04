@@ -7,20 +7,21 @@ final class LoginPasswordViewController: UIViewController {
         return label
     }()
     
-    private lazy var textView: UITextView = {
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isUserInteractionEnabled = true
-        textView.isScrollEnabled = false
-        textView.spellCheckingType = .no
-        textView.autocapitalizationType = .none
-        textView.keyboardType = .numberPad
-        textView.delegate = self
-        textView.tintColor = .black
-        textView.backgroundColor = .white
-        textView.accessibilityTraits = .updatesFrequently
-        textView.isAccessibilityElement = true
-        return textView
+    private lazy var textView: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isUserInteractionEnabled = true
+        textField.spellCheckingType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .numberPad
+        textField.delegate = self
+        textField.tintColor = .black
+        textField.backgroundColor = .white
+        textField.accessibilityTraits = .updatesFrequently
+        textField.isAccessibilityElement = true
+        textField.addTarget(self, action: #selector(textEditing), for: .editingChanged)
+        textField.backgroundColor = .primary
+        return textField
     }()
     
     private lazy var subtitleLabel: UILabel = {
@@ -40,22 +41,31 @@ final class LoginPasswordViewController: UIViewController {
     init(viewModel: LoginViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        setupViews()
     }
     
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // set navigations
+    }
+    
+    @objc func nextButtonAction() {
+        viewModel.login()
+    }
+    
+    @objc func textEditing() {
+        viewModel.passwordDidChange(text: textView.text ?? "")
     }
 }
 
 extension LoginPasswordViewController: ViewConfiguration {
     func configViews() {
         view.backgroundColor = .white
+        
+        actionButton.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
     }
     
     func buildViews() {
@@ -77,18 +87,19 @@ extension LoginPasswordViewController: ViewConfiguration {
             textView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 24),
             textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            textView.heightAnchor.constraint(equalToConstant: 32),
             
             subtitleLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 24),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 24),
+            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24)
         ])
     }
 }
 
-extension LoginPasswordViewController: UITextViewDelegate {
+extension LoginPasswordViewController: UITextFieldDelegate {
     
 }

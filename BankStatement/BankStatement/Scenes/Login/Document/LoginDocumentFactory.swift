@@ -1,7 +1,7 @@
 import Foundation
 
 enum LoginDocumentFactory {
-    static func build() -> LoginDocumentViewController {
-        return LoginDocumentViewController(viewModel: LoginViewModel.init())
+    static func build(mainCoordinator: MainCoordinatorProtocol) -> LoginDocumentViewController {
+        return LoginDocumentViewController(viewModel: LoginViewModel.init(coordinator: mainCoordinator))
     }
 }

@@ -38,18 +38,27 @@ final class IntroViewController: UIViewController {
                                                              title: "Já sou cliente",
                                                              icon: nil)
     
-    init() {
+    private let coordinator: MainCoordinatorProtocol?
+    
+    init(coordinator: MainCoordinatorProtocol?) {
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
         setupViews()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
+    
+    @objc func signupAction() {
+        coordinator?.handle(event: .document)
+    }
 }
 
 extension IntroViewController: ViewConfiguration {
     func configViews() {
         view.backgroundColor = UIColor(named: Colors.primary.rawValue)
+        
+        signupButton.addTarget(self, action: #selector(signupAction), for: .touchUpInside)
     }
     
     func buildViews() {
