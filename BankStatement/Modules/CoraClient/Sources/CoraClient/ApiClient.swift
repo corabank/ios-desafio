@@ -19,7 +19,7 @@ final class ApiClient: ApiClientProtocol {
             throw ApiError.notFound
         }
         
-        let (data, _) = try await urlSession.data(from: url, delegate: nil)
+        let (data, response) = try await urlSession.data(from: url, delegate: nil)
         
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -55,8 +55,8 @@ final class LoginPasswordViewController: UIViewController {
                             rightButtonAction: nil)
     }
     
-    @objc func nextButtonAction() {
-        viewModel.next()
+    @objc func nextButtonAction() async throws {
+        try await viewModel.next()
     }
     
     @objc func textEditing() {
