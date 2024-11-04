@@ -3,7 +3,13 @@ import UIKit
 final class IntroViewController: UIViewController {
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .white
+        imageView.image = UIImage(named: "coraCoverLogin")
+        return imageView
+    }()
+    
+    private lazy var logoImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "coraLogoLogin")
         return imageView
     }()
     
@@ -63,6 +69,7 @@ extension IntroViewController: ViewConfiguration {
     
     func buildViews() {
         [coverImage,
+         logoImage,
          titleLabel,
          subtitleLabel,
          descriptionLabel,
@@ -76,9 +83,13 @@ extension IntroViewController: ViewConfiguration {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             coverImage.heightAnchor.constraint(equalToConstant: 339),
-            coverImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            coverImage.topAnchor.constraint(equalTo: view.topAnchor),
             coverImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             coverImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -16),
+            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            logoImage.heightAnchor.constraint(equalToConstant: 24),
             
             titleLabel.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 24),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
