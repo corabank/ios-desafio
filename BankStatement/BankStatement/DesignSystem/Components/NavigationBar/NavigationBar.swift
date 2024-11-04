@@ -32,5 +32,7 @@ struct NavigationBar {
 
             navigationController.navigationBar.tintColor = UIColor(named: Colors.primary.rawValue)
         }
+        
+        viewController.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

@@ -49,7 +49,10 @@ final class LoginPasswordViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // set navigations
+        NavigationBar.apply(to: self,
+                            title: "Login Cora",
+                            rightButtonImage: nil,
+                            rightButtonAction: nil)
     }
     
     @objc func nextButtonAction() {
