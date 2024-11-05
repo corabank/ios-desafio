@@ -6,55 +6,73 @@ final class IntroViewController: UIViewController {
         imageView.image = UIImage(named: "coraCoverLogin")
         return imageView
     }()
-    
+
     private lazy var logoImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "coraLogoLogin")
         return imageView
     }()
-    
+
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.buildStyle(size: .titleTwo,
+                                       weight: .bold,
+                                       textColor: UIColor(named: Colors.white.rawValue) ?? .white)
         label.text = "Conta Digital PJ"
         return label
     }()
-    
+
     private lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.buildStyle(size: .titleTwo,
+                                       weight: .regular,
+                                       textColor: UIColor(named: Colors.white.rawValue) ?? .white)
         label.text = "Poderosamente simples"
         return label
     }()
-    
+
+    private lazy var titleAndSubtitleStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,
+                                                       subtitleLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        return stackView
+    }()
+
     private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
+        let label = UILabel.buildStyle(size: .bodyOne,
+                                       weight: .regular,
+                                       textColor: UIColor(named: Colors.white.rawValue) ?? .white)
         label.text = "Sua empresa livre burocracias e de taxas para gerar boletos, fazer transferências e pagamentos."
         return label
     }()
-    
-    private lazy var registerButton = CustomButtonBuilder.build(size: ButtonSize.large,
-                                                                style: ButtonStyle.secondary,
-                                                                iconPosition: IconPosition.right,
+
+    private lazy var registerButton = CustomButtonBuilder.build(size: .medium,
+                                                                style: .secondary,
+                                                                iconPosition: .right,
                                                                 title: "Quero fazer parte",
                                                                 icon: .icArrowRight)
 
-    private lazy var signupButton = CustomButtonBuilder.build(size: ButtonSize.medium,
-                                                             style: ButtonStyle.primary,
-                                                             iconPosition: IconPosition.none,
-                                                             title: "Já sou cliente",
-                                                             icon: nil)
-    
+    private lazy var signupButton = LinkButton(text: "Já sou cliente",
+                                               color: .white)
+
+    private lazy var buttonsStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [registerButton,
+                                                       signupButton])
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        return stackView
+    }()
+
     private let coordinator: MainCoordinatorProtocol?
-    
+
     init(coordinator: MainCoordinatorProtocol?) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
         setupViews()
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
-    
+
     @objc func signupAction() {
         coordinator?.handle(event: .document)
     }
@@ -63,53 +81,42 @@ final class IntroViewController: UIViewController {
 extension IntroViewController: ViewConfiguration {
     func configViews() {
         view.backgroundColor = UIColor(named: Colors.primary.rawValue)
-        
         signupButton.addTarget(self, action: #selector(signupAction), for: .touchUpInside)
     }
-    
+
     func buildViews() {
         [coverImage,
          logoImage,
-         titleLabel,
-         subtitleLabel,
+         titleAndSubtitleStack,
          descriptionLabel,
-         registerButton,
-         signupButton].forEach {
+         buttonsStack].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
     }
-    
+
     func setupConstraints() {
         NSLayoutConstraint.activate([
             coverImage.heightAnchor.constraint(equalToConstant: 339),
             coverImage.topAnchor.constraint(equalTo: view.topAnchor),
             coverImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             coverImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+
             logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -16),
             logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             logoImage.heightAnchor.constraint(equalToConstant: 24),
-            
-            titleLabel.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 24),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
-            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 24),
+
+            titleAndSubtitleStack.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 24),
+            titleAndSubtitleStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            titleAndSubtitleStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+
+            descriptionLabel.topAnchor.constraint(equalTo: titleAndSubtitleStack.bottomAnchor, constant: 24),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            
-            registerButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 24),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            
-            signupButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 24),
-            signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            signupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+
+            buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            buttonsStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
         ])
     }
 }
