@@ -48,7 +48,7 @@ final class IntroViewController: UIViewController {
     private lazy var registerButton = CustomButtonBuilder.build(size: .medium,
                                                                 style: .secondary,
                                                                 iconPosition: .right,
-                                                                title: "Quero fazer parte",
+                                                                title: "Quero fazer parte!",
                                                                 icon: .icArrowRight)
 
     private lazy var signupButton = LinkButton(text: "Já sou cliente",
@@ -110,7 +110,7 @@ extension IntroViewController: ViewConfiguration {
             titleAndSubtitleStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             titleAndSubtitleStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
 
-            descriptionLabel.topAnchor.constraint(equalTo: titleAndSubtitleStack.bottomAnchor, constant: 24),
+            descriptionLabel.topAnchor.constraint(equalTo: titleAndSubtitleStack.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
 

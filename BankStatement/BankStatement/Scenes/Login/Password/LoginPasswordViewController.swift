@@ -91,12 +91,12 @@ extension LoginPasswordViewController: ViewConfiguration {
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            textView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 24),
+            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             textView.heightAnchor.constraint(equalToConstant: 32),
             
-            subtitleLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 24),
+            subtitleLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 48),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
