@@ -2,13 +2,17 @@ import UIKit
 
 final class LoginDocumentViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.buildStyle(size: .bodyTwo,
+                                       weight: .regular,
+                                       textColor: .grayOne)
         label.text = "Bem-vindo de volta!"
         return label
     }()
     
     private lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.buildStyle(size: .titleThree,
+                                       weight: .bold,
+                                       textColor: .offBlack)
         label.text = "Qual seu CPF?"
         return label
     }()
@@ -21,7 +25,8 @@ final class LoginDocumentViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.keyboardType = .numberPad
         textField.delegate = self
-        textField.tintColor = .black
+        textField.font = .designFont(size: .titleThree, weight: .regular)
+        textField.textColor = .offBlack
         textField.backgroundColor = .white
         textField.accessibilityTraits = .updatesFrequently
         textField.isAccessibilityElement = true
@@ -30,9 +35,9 @@ final class LoginDocumentViewController: UIViewController {
         return textField
     }()
     
-    private lazy var actionButton = CustomButtonBuilder.build(size: ButtonSize.medium,
-                                                              style: ButtonStyle.primary,
-                                                              iconPosition: IconPosition.right,
+    private lazy var actionButton = CustomButtonBuilder.build(size: .small,
+                                                              style: .primary,
+                                                              iconPosition: .right,
                                                               title: "Próximo",
                                                               icon: .icArrowRight)
     
@@ -88,11 +93,11 @@ extension LoginDocumentViewController: ViewConfiguration {
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
-            textView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 24),
+            textView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 32),
             textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             textView.heightAnchor.constraint(equalToConstant: 32),

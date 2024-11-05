@@ -2,7 +2,9 @@ import UIKit
 
 final class LoginPasswordViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.buildStyle(size: .titleThree,
+                                       weight: .bold,
+                                       textColor: .offBlack)
         label.text = "Digite sua senha de acesso"
         return label
     }()
@@ -25,14 +27,16 @@ final class LoginPasswordViewController: UIViewController {
     }()
     
     private lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel.buildStyle(size: .bodyTwo,
+                                       weight: .regular,
+                                       textColor: .primary)
         label.text = "Esqueci minha senha"
         return label
     }()
     
-    private lazy var actionButton = CustomButtonBuilder.build(size: ButtonSize.medium,
-                                                              style: ButtonStyle.primary,
-                                                              iconPosition: IconPosition.right,
+    private lazy var actionButton = CustomButtonBuilder.build(size: .small,
+                                                              style: .primary,
+                                                              iconPosition: .right,
                                                               title: "Próximo",
                                                               icon: .icArrowRight)
     
