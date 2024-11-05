@@ -2,7 +2,7 @@ import Foundation
 
 protocol LoginPasswordViewModelProtocol {
     func passwordDidChange(text: String)
-    func next()
+    func next() async throws
     func routeToStatements()
 }
 
@@ -22,10 +22,10 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
         password = text
     }
     
-    func next() {
+    func next() async throws  {
         if !password.isEmpty {
             savePassword()
-            auth()
+            try await auth()
         }
     }
     
@@ -37,7 +37,7 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
         service.saveData(data: password, key: LocalDataSourceKeys.password.rawValue)
     }
     
-    private func auth() {
-        service.login()
+    private func auth() async throws {
+        try await service.login()
     }
 }

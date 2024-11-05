@@ -6,7 +6,7 @@ protocol LoginServiceProtocol {
     func saveData(data: String, key: String)
     func getData(key: String) -> String
     
-    func login()
+    func login() async throws
 }
 
 enum LoginServiceFactory {
@@ -36,27 +36,39 @@ private final class LoginService: LoginServiceProtocol {
         localRepository.getData(key: key) as? String ?? ""
     }
     
-    func login() {
+    func login() async throws {
         let document = getData(key: LocalDataSourceKeys.document.rawValue)
         let password = getData(key: LocalDataSourceKeys.password.rawValue)
         
-        print(document)
-        print(password)
+        let request = LoginRequest(body: AuthBody(cpf: document, password: password), headers: [:])
         
-        //apiClient.fetch(request: LoginRequest())
+        do {
+            let response: AuthResponse = try await apiClient.fetch(request: request)
+            print(response)
+        } catch {
+            print("Error: \(error)")
+        }
     }
-    
 }
 
 //move to coraclientinterfaces
 struct LoginRequest: RequestProtocol {
-    var path: String { "https://api.challenge.stage.cora.com.br/challenge/auth" }
+    var path: String { EnvironmentURL.authentication }
     var body: Encodable?
     var headers: [String : String]
     var method: RequestMethod { .post }
     var encoding: RequestEncoding { .json }
 }
 
-struct AuthResponse: Encodable {
+struct AuthBody: Encodable {
+    let cpf: String
+    let password: String
+}
+
+struct AuthResponse: Decodable {
     let token: String
+    
+    enum CodingKeys: String, CodingKey {
+        case token
+    }
 }
