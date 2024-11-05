@@ -22,7 +22,6 @@ final class LoginPasswordViewController: UIViewController {
         textField.accessibilityTraits = .updatesFrequently
         textField.isAccessibilityElement = true
         textField.addTarget(self, action: #selector(textEditing), for: .editingChanged)
-        textField.backgroundColor = .primary
         return textField
     }()
     
@@ -57,6 +56,8 @@ final class LoginPasswordViewController: UIViewController {
                             title: "Login Cora",
                             rightButtonImage: nil,
                             rightButtonAction: nil)
+        
+        textView.becomeFirstResponder()
     }
     
     @objc func nextButtonAction() async throws {
@@ -102,7 +103,7 @@ extension LoginPasswordViewController: ViewConfiguration {
             
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24)
+            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
         ])
     }
 }
