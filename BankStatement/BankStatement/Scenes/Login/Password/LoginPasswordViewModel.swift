@@ -25,7 +25,10 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
     func next()  {
         if !password.isEmpty {
             savePassword()
-            auth()
+            
+            Task {
+                await auth()
+            }
         }
     }
     
@@ -37,7 +40,10 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
         service.saveData(data: password, key: LocalDataSourceKeys.password.rawValue)
     }
     
-    private func auth() {
-        service.login()
+    @MainActor
+    private func auth() async {
+        if let _ = await service.login() {
+            routeToStatements()
+        }
     }
 }

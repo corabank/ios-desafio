@@ -6,7 +6,7 @@ protocol LoginServiceProtocol {
     func saveData(data: String, key: String)
     func getData(key: String) -> String
     
-    func login()
+    func login() async -> AuthResponse?
 }
 
 enum LoginServiceFactory {
@@ -36,15 +36,16 @@ private final class LoginService: LoginServiceProtocol {
         localRepository.getData(key: key) as? String ?? ""
     }
     
-    func login() {
+    func login() async -> AuthResponse?  {
         let document = getData(key: LocalDataSourceKeys.document.rawValue)
         let password = getData(key: LocalDataSourceKeys.password.rawValue)
         
         let request = LoginRequest(body: AuthBody(cpf: document, password: password), headers: [:])
         
-        Task {
-            let response: AuthResponse = try await apiClient.fetch(request: request)
-            print(response)
+        do {
+            return try await apiClient.fetch(request: request)
+        } catch {
+            return nil
         }
     }
 }
