@@ -40,7 +40,7 @@ private final class LoginService: LoginServiceProtocol {
         let document = getData(key: LocalDataSourceKeys.document.rawValue)
         let password = getData(key: LocalDataSourceKeys.password.rawValue)
         
-        let request = LoginRequest(body: AuthBody(cpf: document, password: password), headers: ["apiKey": EnvironmentURL.authentication])
+        let request = LoginRequest(body: AuthBody(cpf: document, password: password), headers: [:])
         
         do {
             let response: AuthResponse = try await apiClient.fetch(request: request)
@@ -53,7 +53,7 @@ private final class LoginService: LoginServiceProtocol {
 
 //move to coraclientinterfaces
 struct LoginRequest: RequestProtocol {
-    var path: String { "https://api.challenge.stage.cora.com.br/challenge/auth" }
+    var path: String { EnvironmentURL.authentication }
     var body: Encodable?
     var headers: [String : String]
     var method: RequestMethod { .post }
