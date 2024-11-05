@@ -34,7 +34,8 @@ final class MainCoordinator: MainCoordinatorProtocol {
             let passwordController = LoginPasswordFactory.build(mainCoordinator: self)
             navigation?.pushViewController(passwordController, animated: true)
         case .statement:
-            break
+            let statementController = StatementViewController()
+            navigation?.pushViewController(statementController, animated: true)
         case .detail:
             break
         }
