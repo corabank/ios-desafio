@@ -4,11 +4,15 @@ import Testing
 
 @Suite("LoginDocumentViewModelSpec", .serialized, .tags(.login))
 final class LoginDocumentViewModelSpec {
-    private lazy var coordinatorSpy = CoordinatorSpy()
+    private lazy var coordinatorSpy = CoordinatorDocumentSpy()
     private lazy var sut = LoginDocumentViewModel(coordinator: self.coordinatorSpy)
     
     enum Scenes: String, CaseIterable {
         case calledNextWithInvalidText, calledNextWithValidText
+    }
+    
+    deinit {
+        self.coordinatorSpy.eventCalled = nil
     }
     
     @Test("next", arguments: Scenes.allCases)
@@ -27,15 +31,13 @@ final class LoginDocumentViewModelSpec {
     private func buildScenes(scenes: Scenes) {
         switch scenes {
         case .calledNextWithInvalidText:
-            self.coordinatorSpy.eventCalled = nil
             sut.documentDidChange(text: "")
         case .calledNextWithValidText:
-            self.coordinatorSpy.eventCalled = nil
             sut.documentDidChange(text: "111.111.111-11")
         }
     }
     
-    private class CoordinatorSpy: MainCoordinatorProtocol {
+    private class CoordinatorDocumentSpy: MainCoordinatorProtocol {
         var eventCalled: MainEvent?
         
         func handle(event: MainEvent) {

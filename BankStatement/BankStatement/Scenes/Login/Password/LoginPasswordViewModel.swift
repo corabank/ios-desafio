@@ -6,7 +6,6 @@ protocol LoginPasswordViewModelProtocol {
     
     func passwordDidChange(text: String)
     func next()
-    func routeToStatements()
 }
 
 final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
@@ -18,9 +17,10 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
     
     private var password: String = ""
     
-    init(coordinator: MainCoordinatorProtocol) {
+    init(coordinator: MainCoordinatorProtocol,
+         service: LoginServiceProtocol = LoginServiceFactory.build()) {
         self.coordinator = coordinator
-        self.service = LoginServiceFactory.build()
+        self.service = service
     }
     
     func passwordDidChange(text: String) {
@@ -43,7 +43,7 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
         }
     }
     
-    func routeToStatements() {
+    private func routeToStatements() {
         coordinator.handle(event: .statement)
     }
     
