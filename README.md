@@ -38,11 +38,11 @@ Aqui é onde você encontra as telas existentes e também onde você fará grand
 
 Inicialmente entregaremos 3 telas funcionais, que serão a `Intro` a tela de `CPF` e a tela de `Senha`.
 
-<img width="300" alt="Intro" src="https://github.com/user-attachments/assets/a7b72ca9-3887-4598-a874-5a25e47d77ea">
+<img width="250" alt="Intro" src="https://github.com/user-attachments/assets/a7b72ca9-3887-4598-a874-5a25e47d77ea">
 
-<img width="300" alt="CPF" src="https://github.com/user-attachments/assets/28653553-ce2f-4052-b73f-2515d2c936c1">
+<img width="250" alt="CPF" src="https://github.com/user-attachments/assets/28653553-ce2f-4052-b73f-2515d2c936c1">
 
-<img width="300" alt="password" src="https://github.com/user-attachments/assets/02d8a154-b98a-427d-8b65-d2af95c80d97">
+<img width="250" alt="password" src="https://github.com/user-attachments/assets/02d8a154-b98a-427d-8b65-d2af95c80d97">
 <br />
 <br />
 
