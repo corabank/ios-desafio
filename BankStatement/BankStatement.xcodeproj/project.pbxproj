@@ -57,11 +57,6 @@
 			path = BankStatementTests;
 			sourceTree = "<group>";
 		};
-		BEA85F592CD27DA900EC01F6 /* BankStatementUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BankStatementUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +97,6 @@
 			children = (
 				BEA85F382CD27DA700EC01F6 /* BankStatement */,
 				BEA85F4F2CD27DA900EC01F6 /* BankStatementTests */,
-				BEA85F592CD27DA900EC01F6 /* BankStatementUITests */,
 				8725E2BD2CD505A5001E1604 /* Frameworks */,
 				BEA85F372CD27DA700EC01F6 /* Products */,
 			);
@@ -179,9 +173,6 @@
 			);
 			dependencies = (
 				BEA85F582CD27DA900EC01F6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				BEA85F592CD27DA900EC01F6 /* BankStatementUITests */,
 			);
 			name = BankStatementUITests;
 			packageProductDependencies = (

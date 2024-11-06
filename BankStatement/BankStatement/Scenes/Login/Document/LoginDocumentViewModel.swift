@@ -35,11 +35,12 @@ final class LoginDocumentViewModel: LoginDocumentViewModelProtocol {
     }
     
     private func routeToPassword() {
-        coordinator.handle(event: .password)
+        if !document.isEmpty {
+            coordinator.handle(event: .password)
+        }
     }
     
     private func saveDocument() {
         service.saveData(data: document, key: LocalDataSourceKeys.document.rawValue)
-        
     }
 }
