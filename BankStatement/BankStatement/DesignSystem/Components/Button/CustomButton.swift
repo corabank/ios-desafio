@@ -5,7 +5,7 @@ enum CustomButtonBuilder {
                       style: ButtonStyle,
                       iconPosition: IconPosition,
                       title: String,
-                      icon: UIImage? = nil) -> UIButton {
+                      icon: UIImage? = nil) -> CustomButton {
         CustomButton(size: size,
                      style: style,
                      iconPosition: iconPosition,
@@ -14,10 +14,12 @@ enum CustomButtonBuilder {
     }
 }
 
-private final class CustomButton: UIButton {
+final class CustomButton: UIButton {
     private let size: ButtonSizeProtocol
-    private let style: ButtonStyleProtocol
+    private var style: ButtonStyleProtocol
     private let iconPosition: IconPositionProtocol
+    private var title: String
+    private let icon: UIImage?
 
     init(size: ButtonSizeProtocol,
          style: ButtonStyleProtocol,
@@ -27,8 +29,15 @@ private final class CustomButton: UIButton {
         self.size = size
         self.style = style
         self.iconPosition = iconPosition
+        self.title = title
+        self.icon = icon
         super.init(frame: .zero)
         setupButton(title: title, icon: icon)
+    }
+    
+    public func setStyle(with style: ButtonStyle) {
+        self.style = style
+        setupButton(title: self.title, icon: self.icon)
     }
 
     required init?(coder: NSCoder) { nil }

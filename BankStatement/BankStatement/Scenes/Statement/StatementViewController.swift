@@ -13,6 +13,7 @@ final class StatementViewController: UIViewController {
         
         view.addSubview(statementLabel)
         view.backgroundColor = .white
+        navigationController?.setNavigationBarHidden(true, animated: true)
         statementLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         statementLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }

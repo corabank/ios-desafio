@@ -34,16 +34,17 @@ final class LoginPasswordViewController: UIViewController {
     }()
     
     private lazy var actionButton = CustomButtonBuilder.build(size: .small,
-                                                              style: .primary,
+                                                              style: .disabled,
                                                               iconPosition: .right,
                                                               title: "Próximo",
                                                               icon: .icArrowRight)
     
-    private let viewModel: LoginPasswordViewModelProtocol
+    private var viewModel: LoginPasswordViewModelProtocol
     
     init(viewModel: LoginPasswordViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        configBindings()
         setupViews()
     }
     
@@ -58,6 +59,12 @@ final class LoginPasswordViewController: UIViewController {
                             rightButtonAction: nil)
         
         textView.becomeFirstResponder()
+    }
+    
+    private func configBindings() {
+        viewModel.isActionEnabled = { [actionButton] isEnabled in
+            isEnabled ? actionButton.setStyle(with: .primary) : actionButton.setStyle(with: .disabled)
+        }
     }
     
     @objc func nextButtonAction() {

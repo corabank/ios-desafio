@@ -1,12 +1,14 @@
 import Foundation
 
 protocol LoginPasswordViewModelProtocol {
+    var isActionEnabled: ((Bool) -> Void)? { get set }
     func passwordDidChange(text: String)
     func next()
     func routeToStatements()
 }
 
 final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
+    var isActionEnabled: ((Bool) -> Void)?
     
     private let coordinator: MainCoordinatorProtocol,
                 service: LoginServiceProtocol
@@ -20,6 +22,12 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
     
     func passwordDidChange(text: String) {
         password = text
+        
+        if password.isEmpty {
+            isActionEnabled?(false)
+        } else {
+            isActionEnabled?(true)
+        }
     }
     
     func next()  {

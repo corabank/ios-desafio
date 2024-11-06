@@ -1,11 +1,13 @@
 import Foundation
 
 protocol LoginDocumentViewModelProtocol {
+    var isActionEnabled: ((Bool) -> Void)? { get set }
     func documentDidChange(text: String)
     func next()
 }
 
 final class LoginDocumentViewModel: LoginDocumentViewModelProtocol {
+    var isActionEnabled: ((Bool) -> Void)?
     
     private let coordinator: MainCoordinatorProtocol,
                 service: LoginServiceProtocol
@@ -18,14 +20,18 @@ final class LoginDocumentViewModel: LoginDocumentViewModelProtocol {
     }
     
     func next() {
-        if !document.isEmpty {
-            saveDocument()
-            routeToPassword()
-        }
+        saveDocument()
+        routeToPassword()
     }
     
     func documentDidChange(text: String) {
         document = text
+        
+        if document.isEmpty {
+            isActionEnabled?(false)
+        } else {
+            isActionEnabled?(true)
+        }
     }
     
     private func routeToPassword() {
