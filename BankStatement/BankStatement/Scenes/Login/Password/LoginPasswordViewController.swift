@@ -21,6 +21,7 @@ final class LoginPasswordViewController: UIViewController {
         textField.backgroundColor = .white
         textField.accessibilityTraits = .updatesFrequently
         textField.isAccessibilityElement = true
+        textField.isSecureTextEntry = true
         textField.addTarget(self, action: #selector(textEditing), for: .editingChanged)
         return textField
     }()
@@ -65,6 +66,10 @@ final class LoginPasswordViewController: UIViewController {
         viewModel.isActionEnabled = { [actionButton] isEnabled in
             isEnabled ? actionButton.setStyle(with: .primary) : actionButton.setStyle(with: .disabled)
         }
+    }
+    
+    @objc func hidePassword() {
+        textView.isSecureTextEntry = !textView.isSecureTextEntry
     }
     
     @objc func nextButtonAction() {
