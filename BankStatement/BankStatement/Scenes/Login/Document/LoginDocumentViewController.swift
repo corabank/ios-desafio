@@ -75,6 +75,7 @@ final class LoginDocumentViewController: UIViewController {
     }
     
     @objc func textEditing() {
+        textView.text = textView.text?.applyMask(with: "###.###.###-##")
         viewModel.documentDidChange(text: textView.text ?? "")
     }
 }
