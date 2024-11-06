@@ -41,12 +41,19 @@ final class LoginPasswordViewController: UIViewController {
                                                               icon: .icArrowRight)
     
     private var viewModel: LoginPasswordViewModelProtocol
+    let kBottomConstraintConstant: CGFloat = -16.0
+    var kBottomConstraint: NSLayoutConstraint?
     
     init(viewModel: LoginPasswordViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        registerForKeyboardEvents()
         configBindings()
         setupViews()
+    }
+    
+    deinit {
+        unregisterFromKeyboardEvents()
     }
     
     @available(*, unavailable)
@@ -99,6 +106,10 @@ extension LoginPasswordViewController: ViewConfiguration {
     }
     
     func setupConstraints() {
+        kBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                                 constant: kBottomConstraintConstant - (Notification.keyboardSize?.height ?? 0.0))
+        kBottomConstraint?.isActive = true
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -120,6 +131,23 @@ extension LoginPasswordViewController: ViewConfiguration {
     }
 }
 
-extension LoginPasswordViewController: UITextFieldDelegate {
+extension LoginPasswordViewController: UITextFieldDelegate {}
+
+extension LoginPasswordViewController: KeyboardObserving {
+    func keyboardWillShow(_ notification: Notification) {
+        let bottomConstraint = kBottomConstraintConstant - (notification.keyboardSize?.height ?? 0.0)
+        kBottomConstraint?.constant = bottomConstraint
+        
+        UIView.animate(withDuration: 0) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
     
+    func keyboardWillHide(_ notification: Notification) {
+        kBottomConstraint?.constant = kBottomConstraintConstant
+        
+        UIView.animate(withDuration: 0) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
 }

@@ -41,12 +41,19 @@ final class LoginDocumentViewController: UIViewController {
                                                               icon: .icArrowRight)
     
     private var viewModel: LoginDocumentViewModelProtocol
+    let kBottomConstraintConstant: CGFloat = -16.0
+    var kBottomConstraint: NSLayoutConstraint?
     
     init(viewModel: LoginDocumentViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        registerForKeyboardEvents()
         configBindings()
         setupViews()
+    }
+    
+    deinit {
+        unregisterFromKeyboardEvents()
     }
     
     @available(*, unavailable)
@@ -98,6 +105,10 @@ extension LoginDocumentViewController: ViewConfiguration {
     }
     
     func setupConstraints() {
+        kBottomConstraint = actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                                 constant: kBottomConstraintConstant - (Notification.keyboardSize?.height ?? 0.0))
+        kBottomConstraint?.isActive = true
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -114,7 +125,6 @@ extension LoginDocumentViewController: ViewConfiguration {
             
             actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
         ])
     }
 }
@@ -124,7 +134,27 @@ extension LoginDocumentViewController: UITextFieldDelegate {
         let maxLength = 14
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
-
+        
         return newString.count <= maxLength
+    }
+    
+}
+
+extension LoginDocumentViewController: KeyboardObserving {
+    func keyboardWillShow(_ notification: Notification) {
+        let bottomConstraint = kBottomConstraintConstant - (notification.keyboardSize?.height ?? 0.0)
+        kBottomConstraint?.constant = bottomConstraint
+        
+        UIView.animate(withDuration: 0) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillHide(_ notification: Notification) {
+        kBottomConstraint?.constant = kBottomConstraintConstant
+        
+        UIView.animate(withDuration: 0) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
     }
 }
