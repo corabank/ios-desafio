@@ -6,43 +6,21 @@ Este repositório contém o desafio técnico para candidatos à posição de des
 
 Não se preocupe com o layout das telas seguintes, tudo isso será fornecido conforme a necessidade durante o desafio.
 
-## Como rodar o app
-
-Para rodar o aplicativo em sua máquina local, siga os passos abaixo:
-
-1. Clone este repositório:
-   
-```bash
-   git clone github.com/corabank/ios-desafio.git
-```
-
-2. Navegue até o diretório do projeto:
-   
-```bash
-   cd [PATH_DO_PROJETO]
-```
- 
-3. [Próximos passos...]:
-   
-```bash
-   [COMANDOS_NECESSÁRIOS]
-```
-
 ## Estrutura do projeto
 
 O projeto que utilizaremos no desafio foi estruturado pensando na separação em camadas (ainda que estas não estejam em projetos/targets separados nesse primeiro momento). Veja abaixo uma listagem das principais camadas e mais abaixo um detalhamento de cada uma delas: 
-- Design Systems (DS)
-- Infra
-- Root
-- Scenes
-- Rede [PEGAR NOME CORRETO]
+
+- App
+  - Infra
+  - Root
+  - Scenes
+- Modules
+  - CoraClient
+  - CoraClientInterfaces
+  - DesignSystem (DS)
 - Tests
 
-#### Design Systems (DS)
-
-Ao entrar para o nosso time você fará uso do nosso [Design System](https://brasil.uxdesign.cc/afinal-o-que-%C3%A9-design-system-448c257b0021) interno (o Arco) e decidimos trazer algo similar ao que você encontrará no dia a dia da Cora. A ideia dessa camada é entregar para você componentes prontos que podem ser reutilizados e customizados (até certo ponto) de acordo com a necessidade de suas telas. 
-
-*Dica:* durante o desafio, avalie se algum componente visual que você está criando não faz sentido estar dentro do DS.
+## App
 
 #### Infra
 
@@ -70,13 +48,27 @@ Inicialmente entregaremos 3 telas funcionais, que serão a `Intro` a tela de `CP
 
 *Dica:* não curtiu o padrão MVVM? Tem alguma sugestão de outro padrão? Traga para discussão durante o desafio... Só lembre que será uma discussão, logo, você precisa de embasamento para defender sua tese.
 
-#### Rede [PEGAR NOME CORRETO]
+## Modules
+
+#### CoraClientInterfaces
+
+Camada que possui apenas os contratos da nossa camada de rede. 
+
+#### CoraClient
 
 Camada dedicada as chamadas de rede (REST). Como em toda empresa que começamos a trabalhar, sempre temos essa camada pronto e quase nunca há a necessidade de mudanças nela (salvo exceções de quando você começa o projeto do zero). Aqui o objetivo é exatamente este, não queremos ver você implementar manualmente algo que no dia a dia você terá pronto, então, estude o funcionamento e esteja pronto para usar com fluência no dia do desafio.
 
 *Dica:* caso veja possibilidades de melhoria nessa camada traga para discussão.
 
-#### Tests
+#### DesignSystem (DS)
+
+Ao entrar para o nosso time você fará uso do nosso [Design System](https://brasil.uxdesign.cc/afinal-o-que-%C3%A9-design-system-448c257b0021) interno (o Arco) e decidimos trazer algo similar ao que você encontrará no dia a dia da Cora. A ideia dessa camada é entregar para você componentes prontos que podem ser reutilizados e customizados (até certo ponto) de acordo com a necessidade de suas telas. 
+
+Neste módulo é possível acessar o projeto Sample, e a partir dele ver o exemplo de uso de todos os elementos do DS.
+
+*Dica:* durante o desafio, avalie se algum componente visual que você está criando não faz sentido estar dentro do DS.
+
+## Tests
 
 Temos dois diretórios dedicados aos testes unitários e de UI (apesar de não haver nenhum escrito neste). O nome é auto-explicativo, basicamente é aqui onde esperamos que você nos mostre como garante que seu código se comporta conforme o esperado. 
 
