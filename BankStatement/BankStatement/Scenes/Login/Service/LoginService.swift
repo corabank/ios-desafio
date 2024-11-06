@@ -37,10 +37,9 @@ private final class LoginService: LoginServiceProtocol {
     }
     
     func login() async -> AuthResponse?  {
-        let document = getData(key: LocalDataSourceKeys.document.rawValue)
-        let password = getData(key: LocalDataSourceKeys.password.rawValue)
-        
-        let request = LoginRequest(body: AuthBody(cpf: document, password: password), headers: [:])
+        let request = LoginRequest(body: AuthBody(cpf: getData(key: LocalDataSourceKeys.document.rawValue),
+                                                  password: getData(key: LocalDataSourceKeys.password.rawValue)),
+                                   headers: [:])
         
         do {
             return try await apiClient.fetch(request: request)
@@ -50,7 +49,6 @@ private final class LoginService: LoginServiceProtocol {
     }
 }
 
-//move to coraclientinterfaces
 struct LoginRequest: RequestProtocol {
     var path: String { EnvironmentURL.authentication }
     var body: Encodable?
