@@ -2,12 +2,15 @@ import Foundation
 
 protocol LoginPasswordViewModelProtocol {
     var isActionEnabled: ((Bool) -> Void)? { get set }
+    var showAuthError: (() -> Void)? { get set }
+    
     func passwordDidChange(text: String)
     func next()
     func routeToStatements()
 }
 
 final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
+    var showAuthError: (() -> Void)?
     var isActionEnabled: ((Bool) -> Void)?
     
     private let coordinator: MainCoordinatorProtocol,
@@ -52,6 +55,8 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
     private func auth() async {
         if let _ = await service.login() {
             routeToStatements()
+        } else {
+            showAuthError?()
         }
     }
 }

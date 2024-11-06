@@ -80,6 +80,17 @@ final class LoginPasswordViewController: UIViewController {
         viewModel.isActionEnabled = { [actionButton] isEnabled in
             isEnabled ? actionButton.setStyle(with: .primary) : actionButton.setStyle(with: .disabled)
         }
+        
+        viewModel.showAuthError = {
+            let alert = UIAlertController(title: "Ops!",
+                                          message: "Não foi possível realizar o login.",
+                                          preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: UIAlertAction.Style.default,
+                                          handler: nil ))
+            self.present(alert, animated: true)
+        }
     }
     
     @objc func hidePassword() {
