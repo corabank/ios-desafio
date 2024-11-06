@@ -74,8 +74,6 @@ final class LoginPasswordViewController: UIViewController {
                             title: "Login Cora",
                             rightButtonImage: nil,
                             rightButtonAction: nil)
-        
-//        textView.becomeFirstResponder()
     }
     
     private func configBindings() {
