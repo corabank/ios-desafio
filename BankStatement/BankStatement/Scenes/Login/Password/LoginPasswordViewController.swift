@@ -9,6 +9,15 @@ final class LoginPasswordViewController: UIViewController {
         return label
     }()
     
+    private lazy var eyeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ic_eye-visible")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        imageView.tintColor = .primary
+        return imageView
+    }()
+    
     private lazy var textView: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +75,7 @@ final class LoginPasswordViewController: UIViewController {
                             rightButtonImage: nil,
                             rightButtonAction: nil)
         
-        textView.becomeFirstResponder()
+//        textView.becomeFirstResponder()
     }
     
     private func configBindings() {
@@ -76,6 +85,11 @@ final class LoginPasswordViewController: UIViewController {
     }
     
     @objc func hidePassword() {
+        if textView.isSecureTextEntry {
+            eyeImageView.image = UIImage(named: "ic_eye-hidden")
+        } else {
+            eyeImageView.image = UIImage(named: "ic_eye-visible")
+        }
         textView.isSecureTextEntry = !textView.isSecureTextEntry
     }
     
@@ -93,11 +107,15 @@ extension LoginPasswordViewController: ViewConfiguration {
         view.backgroundColor = .white
         
         actionButton.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hidePassword))
+        eyeImageView.addGestureRecognizer(tap)
     }
     
     func buildViews() {
         [titleLabel,
          textView,
+         eyeImageView,
          subtitleLabel,
          actionButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -119,6 +137,11 @@ extension LoginPasswordViewController: ViewConfiguration {
             textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             textView.heightAnchor.constraint(equalToConstant: 32),
+            
+            eyeImageView.topAnchor.constraint(equalTo: textView.topAnchor),
+            eyeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            eyeImageView.heightAnchor.constraint(equalToConstant: 32),
+            eyeImageView.widthAnchor.constraint(equalToConstant: 32),
             
             subtitleLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 48),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
