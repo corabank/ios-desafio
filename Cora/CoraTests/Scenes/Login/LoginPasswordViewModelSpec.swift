@@ -14,10 +14,10 @@ final class LoginPasswordViewModelSpec {
     }
     
     @Test("next", arguments: Scenes.allCases)
-    func next(scenes: Scenes) {
+    func next(scenes: Scenes) async throws {
         buildNextScenes(scenes: scenes)
         
-        sut.next()
+        await sut.next()
         
         switch scenes {
         case .calledNextWithInvalidPassword:

@@ -5,7 +5,7 @@ protocol LoginPasswordViewModelProtocol {
     var showAuthError: (() -> Void)? { get set }
     
     func passwordDidChange(text: String)
-    func next()
+    func next() async
 }
 
 final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
@@ -33,13 +33,11 @@ final class LoginPasswordViewModel: LoginPasswordViewModelProtocol {
         }
     }
     
-    func next()  {
+    func next() async {
         if !password.isEmpty {
             savePassword()
             
-            Task {
-                await auth()
-            }
+            await auth()
         }
     }
     
