@@ -17,12 +17,13 @@ final class LoginPasswordViewModelSpec {
     func next(scenes: Scenes) async throws {
         buildNextScenes(scenes: scenes)
         
-        await sut.next()
+        sut.next()
         
         switch scenes {
         case .calledNextWithInvalidPassword:
             #expect(coordinatorSpy.eventCalled == nil)
         case .calledNextWithValidPassword:
+            try await Task.sleep(nanoseconds: 100000)
             #expect(coordinatorSpy.eventCalled == .statement)
         }
     }

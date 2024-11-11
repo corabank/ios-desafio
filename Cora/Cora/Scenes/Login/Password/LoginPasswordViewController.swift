@@ -104,9 +104,7 @@ final class LoginPasswordViewController: UIViewController {
     }
     
     @objc func nextButtonAction() {
-        Task {
-            await viewModel.next()
-        }
+        viewModel.next()
     }
     
     @objc func textEditing() {
