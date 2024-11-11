@@ -35,7 +35,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		BEA85F5E2CD27DA900EC01F6 /* Exceptions for "BankStatement" folder in "Cora" target */ = {
+		BEA85F5E2CD27DA900EC01F6 /* Exceptions for "Cora" folder in "Cora" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Root/Info.plist,
@@ -45,17 +45,17 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BEA85F382CD27DA700EC01F6 /* BankStatement */ = {
+		BEA85F382CD27DA700EC01F6 /* Cora */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				BEA85F5E2CD27DA900EC01F6 /* Exceptions for "BankStatement" folder in "Cora" target */,
+				BEA85F5E2CD27DA900EC01F6 /* Exceptions for "Cora" folder in "Cora" target */,
 			);
-			path = BankStatement;
+			path = Cora;
 			sourceTree = "<group>";
 		};
-		BEA85F4F2CD27DA900EC01F6 /* BankStatementTests */ = {
+		BEA85F4F2CD27DA900EC01F6 /* CoraTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BankStatementTests;
+			path = CoraTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -97,8 +97,8 @@
 		BEA85F2D2CD27DA700EC01F6 = {
 			isa = PBXGroup;
 			children = (
-				BEA85F382CD27DA700EC01F6 /* BankStatement */,
-				BEA85F4F2CD27DA900EC01F6 /* BankStatementTests */,
+				BEA85F382CD27DA700EC01F6 /* Cora */,
+				BEA85F4F2CD27DA900EC01F6 /* CoraTests */,
 				8725E2BD2CD505A5001E1604 /* Frameworks */,
 				BEA85F372CD27DA700EC01F6 /* Products */,
 			);
@@ -130,7 +130,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BEA85F382CD27DA700EC01F6 /* BankStatement */,
+				BEA85F382CD27DA700EC01F6 /* Cora */,
 			);
 			name = Cora;
 			packageProductDependencies = (
@@ -155,7 +155,7 @@
 				BEA85F4E2CD27DA900EC01F6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BEA85F4F2CD27DA900EC01F6 /* BankStatementTests */,
+				BEA85F4F2CD27DA900EC01F6 /* CoraTests */,
 			);
 			name = CoraTests;
 			packageProductDependencies = (
