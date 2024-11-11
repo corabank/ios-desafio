@@ -1,6 +1,6 @@
 import Testing
 
-@testable import BankStatement
+@testable import Cora
 
 @Suite("LoginDocumentViewModelSpec", .serialized, .tags(.login))
 final class LoginDocumentViewModelSpec {

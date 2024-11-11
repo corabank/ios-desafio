@@ -1,6 +1,6 @@
 //
 //  StatementDetailsViewModel.swift
-//  BankStatement
+//  Cora
 //
 //  Created by henrique augusto on 30/10/24.
 //

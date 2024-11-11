@@ -1,6 +1,6 @@
 //
 //  StatementSpec.swift
-//  BankStatementTests
+//  CoraTests
 //
 //  Created by henrique augusto on 06/11/24.
 //
