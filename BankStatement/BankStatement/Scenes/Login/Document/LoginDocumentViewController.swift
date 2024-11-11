@@ -1,10 +1,11 @@
 import UIKit
+import DesignSystem
 
 final class LoginDocumentViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel.buildStyle(size: .bodyTwo,
                                        weight: .regular,
-                                       textColor: .grayOne)
+                                       textColor: Colors.grayOne.uiColor)
         label.text = "Bem-vindo de volta!"
         return label
     }()
@@ -12,7 +13,7 @@ final class LoginDocumentViewController: UIViewController {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel.buildStyle(size: .titleThree,
                                        weight: .bold,
-                                       textColor: .offBlack)
+                                       textColor: Colors.offBlack.uiColor)
         label.text = "Qual seu CPF?"
         return label
     }()
@@ -26,8 +27,8 @@ final class LoginDocumentViewController: UIViewController {
         textField.keyboardType = .numberPad
         textField.delegate = self
         textField.font = .designFont(size: .titleThree, weight: .regular)
-        textField.textColor = .offBlack
-        textField.backgroundColor = .white
+        textField.textColor = Colors.offBlack.uiColor
+        textField.backgroundColor = Colors.white.uiColor
         textField.accessibilityTraits = .updatesFrequently
         textField.isAccessibilityElement = true
         textField.addTarget(self, action: #selector(textEditing), for: .editingChanged)
@@ -38,7 +39,7 @@ final class LoginDocumentViewController: UIViewController {
                                                               style: .disabled,
                                                               iconPosition: .right,
                                                               title: "Próximo",
-                                                              icon: .icArrowRight)
+                                                              icon: Icons.icArrowRight.image)
     
     private var viewModel: LoginDocumentViewModelProtocol
     let kBottomConstraintConstant: CGFloat = -16.0
@@ -89,7 +90,7 @@ final class LoginDocumentViewController: UIViewController {
 
 extension LoginDocumentViewController: ViewConfiguration {
     func configViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.white.uiColor
         
         actionButton.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
     }

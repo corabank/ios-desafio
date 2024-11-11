@@ -1,3 +1,5 @@
+import UIKit
+
 public enum Icons: String {
     case icArrowDown = "ic_arrow-down",
          icArrowReturn = "ic_arrow-return",
@@ -11,4 +13,8 @@ public enum Icons: String {
          icFilter = "ic_filter",
          icPercentage = "ic_percentage",
          icShareIos = "ic_share-ios"
+
+    public var image: UIImage {
+        UIImage(named: rawValue, in: Bundle.module, compatibleWith: nil) ?? .init()
+    }
 }

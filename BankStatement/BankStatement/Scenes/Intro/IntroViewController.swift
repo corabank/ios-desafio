@@ -1,22 +1,23 @@
 import UIKit
+import DesignSystem
 
 final class IntroViewController: UIViewController {
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "coraCoverLogin")
+        imageView.image = DSAssets.coraCoverLogin.image
         return imageView
     }()
 
     private lazy var logoImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "coraLogoLogin")
+        imageView.image = DSAssets.coraLogoLogin.image
         return imageView
     }()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel.buildStyle(size: .titleTwo,
                                        weight: .bold,
-                                       textColor: UIColor(named: Colors.white.rawValue) ?? .white)
+                                       textColor: Colors.white.uiColor)
         label.text = "Conta Digital PJ"
         return label
     }()
@@ -24,7 +25,7 @@ final class IntroViewController: UIViewController {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel.buildStyle(size: .titleTwo,
                                        weight: .regular,
-                                       textColor: UIColor(named: Colors.white.rawValue) ?? .white)
+                                       textColor: Colors.white.uiColor)
         label.text = "Poderosamente simples"
         return label
     }()
@@ -40,7 +41,7 @@ final class IntroViewController: UIViewController {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel.buildStyle(size: .bodyOne,
                                        weight: .regular,
-                                       textColor: UIColor(named: Colors.white.rawValue) ?? .white)
+                                       textColor: Colors.white.uiColor)
         label.text = "Sua empresa livre burocracias e de taxas para gerar boletos, fazer transferências e pagamentos."
         return label
     }()
@@ -49,7 +50,7 @@ final class IntroViewController: UIViewController {
                                                                 style: .secondary,
                                                                 iconPosition: .right,
                                                                 title: "Quero fazer parte!",
-                                                                icon: .icArrowRight)
+                                                                icon: Icons.icArrowRight.image)
 
     private lazy var signupButton = LinkButton(text: "Já sou cliente",
                                                color: .white)
@@ -80,7 +81,7 @@ final class IntroViewController: UIViewController {
 
 extension IntroViewController: ViewConfiguration {
     func configViews() {
-        view.backgroundColor = UIColor(named: Colors.primary.rawValue)
+        view.backgroundColor = Colors.primary.uiColor
         signupButton.addTarget(self, action: #selector(signupAction), for: .touchUpInside)
     }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8725E2BF2CD505A5001E1604 /* CoraClient in Frameworks */ = {isa = PBXBuildFile; productRef = 8725E2BE2CD505A5001E1604 /* CoraClient */; };
+		93A1E7D42CE22CC000D69DC4 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 93A1E7D32CE22CC000D69DC4 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8725E2BF2CD505A5001E1604 /* CoraClient in Frameworks */,
+				93A1E7D42CE22CC000D69DC4 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +135,7 @@
 			name = BankStatement;
 			packageProductDependencies = (
 				8725E2BE2CD505A5001E1604 /* CoraClient */,
+				93A1E7D32CE22CC000D69DC4 /* DesignSystem */,
 			);
 			productName = BankStatement;
 			productReference = BEA85F362CD27DA700EC01F6 /* BankStatement.app */;
@@ -215,6 +218,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8725E2BC2CD5055B001E1604 /* XCLocalSwiftPackageReference "Modules/CoraClient" */,
+				93A1E7D22CE22CBF00D69DC4 /* XCLocalSwiftPackageReference "Modules/DesignSystem" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BEA85F372CD27DA700EC01F6 /* Products */;
@@ -581,6 +585,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Modules/CoraClient;
 		};
+		93A1E7D22CE22CBF00D69DC4 /* XCLocalSwiftPackageReference "Modules/DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/DesignSystem;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -588,6 +596,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8725E2BC2CD5055B001E1604 /* XCLocalSwiftPackageReference "Modules/CoraClient" */;
 			productName = CoraClient;
+		};
+		93A1E7D32CE22CC000D69DC4 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

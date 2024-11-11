@@ -39,9 +39,9 @@ public final class LinkButton: UIControl {
     private func applyColor() {
         switch buttonColor {
         case .white:
-            titleLabel.textColor = UIColor(named: Colors.white.rawValue)
+            titleLabel.textColor = Colors.white.uiColor
         case .primary:
-            titleLabel.textColor = UIColor(named: Colors.primary.rawValue)
+            titleLabel.textColor = Colors.primary.uiColor
         }
     }
 

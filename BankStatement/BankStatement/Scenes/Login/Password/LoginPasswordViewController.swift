@@ -1,20 +1,21 @@
 import UIKit
+import DesignSystem
 
 final class LoginPasswordViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel.buildStyle(size: .titleThree,
                                        weight: .bold,
-                                       textColor: .offBlack)
+                                       textColor: Colors.offBlack.uiColor)
         label.text = "Digite sua senha de acesso"
         return label
     }()
     
     private lazy var eyeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "ic_eye-visible")
+        imageView.image = Icons.icEyeVisible.image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
-        imageView.tintColor = .primary
+        imageView.tintColor = Colors.primary.uiColor
         return imageView
     }()
     
@@ -26,8 +27,8 @@ final class LoginPasswordViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.keyboardType = .numberPad
         textField.delegate = self
-        textField.tintColor = .black
-        textField.backgroundColor = .white
+        textField.tintColor = Colors.black.uiColor
+        textField.backgroundColor = Colors.white.uiColor
         textField.accessibilityTraits = .updatesFrequently
         textField.isAccessibilityElement = true
         textField.isSecureTextEntry = true
@@ -38,7 +39,7 @@ final class LoginPasswordViewController: UIViewController {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel.buildStyle(size: .bodyTwo,
                                        weight: .regular,
-                                       textColor: .primary)
+                                       textColor: Colors.primary.uiColor)
         label.text = "Esqueci minha senha"
         return label
     }()
@@ -47,8 +48,8 @@ final class LoginPasswordViewController: UIViewController {
                                                               style: .disabled,
                                                               iconPosition: .right,
                                                               title: "Próximo",
-                                                              icon: .icArrowRight)
-    
+                                                              icon: Icons.icArrowRight.image)
+
     private var viewModel: LoginPasswordViewModelProtocol
     let kBottomConstraintConstant: CGFloat = -16.0
     var kBottomConstraint: NSLayoutConstraint?
@@ -95,9 +96,9 @@ final class LoginPasswordViewController: UIViewController {
     
     @objc func hidePassword() {
         if textView.isSecureTextEntry {
-            eyeImageView.image = UIImage(named: "ic_eye-hidden")
+            eyeImageView.image = Icons.icEyeHidden.image
         } else {
-            eyeImageView.image = UIImage(named: "ic_eye-visible")
+            eyeImageView.image = Icons.icEyeVisible.image
         }
         textView.isSecureTextEntry = !textView.isSecureTextEntry
     }

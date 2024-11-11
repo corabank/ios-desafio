@@ -1,3 +1,5 @@
+import UIKit
+
 public enum Colors: String {
     case black = "black",
          grayOne = "grayOne",
@@ -7,4 +9,8 @@ public enum Colors: String {
          primary = "primary",
          secondaryLight = "secondaryLight",
          white = "white"
+
+    public var uiColor: UIColor {
+        UIColor(named: rawValue, in: Bundle.module, compatibleWith: nil) ?? .init()
+    }
 }
