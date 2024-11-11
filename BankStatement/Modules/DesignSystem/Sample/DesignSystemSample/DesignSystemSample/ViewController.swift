@@ -28,6 +28,11 @@ final class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(stackview)
 
+        NavigationBar.apply(to: self,
+                            title: "Componentes do DS",
+                            rightButtonImage: UIImage(named: Icons.icShareIos.rawValue),
+                            rightButtonAction: #selector(rightButtonPressed))
+
         stackview.addArrangedSubview(button)
         stackview.addArrangedSubview(label)
         stackview.addArrangedSubview(linkButton)
@@ -41,5 +46,10 @@ final class ViewController: UIViewController {
             button.leadingAnchor.constraint(equalTo: stackview.leadingAnchor),
             button.trailingAnchor.constraint(equalTo: stackview.trailingAnchor)
         ])
+    }
+
+    @objc
+    func rightButtonPressed() {
+        print("rightButtonPressed")
     }
 }

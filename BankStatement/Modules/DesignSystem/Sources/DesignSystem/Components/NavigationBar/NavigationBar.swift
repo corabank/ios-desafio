@@ -1,10 +1,10 @@
 import UIKit
 
 public struct NavigationBar {
-    static func apply(to viewController: UIViewController,
-                      title: String,
-                      rightButtonImage: UIImage?,
-                      rightButtonAction: Selector?) {
+    public static func apply(to viewController: UIViewController,
+                             title: String,
+                             rightButtonImage: UIImage?,
+                             rightButtonAction: Selector?) {
         viewController.title = title
 
         if let navigationController = viewController.navigationController, navigationController.viewControllers.count > 1 {
@@ -15,7 +15,10 @@ public struct NavigationBar {
         }
 
         if let rightButtonAction = rightButtonAction {
-            let rightButton = UIBarButtonItem(image: rightButtonImage, style: .plain, target: viewController, action: rightButtonAction)
+            let rightButton = UIBarButtonItem(image: rightButtonImage,
+                                              style: .plain,
+                                              target: viewController,
+                                              action: rightButtonAction)
             viewController.navigationItem.rightBarButtonItem = rightButton
         }
 
