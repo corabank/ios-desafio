@@ -32,22 +32,22 @@ public enum ButtonStyle: ButtonStyleProtocol {
 
     public var backgroundColor: UIColor {
         switch self {
-        case .primary: return UIColor(named: Colors.primary.rawValue) ?? .systemPink
-        case .secondary: return UIColor(named: Colors.white.rawValue) ?? .white
-        case .disabled: return UIColor(named: Colors.grayTwo.rawValue) ?? .systemGray2
+        case .primary: return Colors.primary.uiColor
+        case .secondary: return Colors.white.uiColor
+        case .disabled: return Colors.grayTwo.uiColor
         }
     }
 
     public var titleColor: UIColor {
         switch self {
-        case .primary, .disabled: return UIColor(named: Colors.white.rawValue) ?? .white
-        case .secondary: return UIColor(named: Colors.primary.rawValue) ?? .systemPink
+        case .primary, .disabled: return Colors.white.uiColor
+        case .secondary: return Colors.primary.uiColor
         }
     }
 
     public var borderColor: UIColor? {
         switch self {
-        case .secondary: return UIColor(named: Colors.primary.rawValue)
+        case .secondary: return Colors.primary.uiColor
         default: return nil
         }
     }

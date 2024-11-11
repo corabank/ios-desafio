@@ -58,8 +58,8 @@ private final class FilterView: UIView {
 
     private lazy var actionIcon: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: Icons.icFilter.rawValue), for: .normal)
-        button.tintColor = UIColor(named: Colors.primary.rawValue)
+        button.setImage(Icons.icFilter.image, for: .normal)
+        button.tintColor = Colors.primary.uiColor
         button.addTarget(self, action: #selector(didTapActionIcon), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -95,7 +95,8 @@ private final class FilterView: UIView {
 
 extension FilterView: ViewConfiguration {
     func configViews() {
-        backgroundColor = UIColor(named: Colors.white.rawValue)
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = Colors.white.uiColor
     }
     
     func buildViews() {

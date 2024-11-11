@@ -4,7 +4,7 @@ public final class FilterCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir", size: 14)
-        label.textColor = UIColor(named: Colors.grayOne.rawValue)
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -26,14 +26,17 @@ public final class FilterCell: UICollectionViewCell {
 
     func setTitle(with title: String, isSelected: Bool) {
         titleLabel.text = title
-        titleLabel.font = isSelected ? UIFont(name: "Avenir-Heavy", size: 14) : UIFont(name: "Avenir", size: 14)
-        titleLabel.textColor = isSelected ? .systemPink : UIColor(named: Colors.grayOne.rawValue)
-        selectionIndicator.backgroundColor = isSelected ? .systemPink : .clear
+        print("Configuração da célula com título: \(title)")
+        titleLabel.font = isSelected ? UIFont.designFont(size: .bodyTwo, weight: .bold) : UIFont.designFont(size: .bodyTwo, weight: .regular)
+        titleLabel.textColor = isSelected ? Colors.primary.uiColor : Colors.grayOne.uiColor
+        selectionIndicator.backgroundColor = isSelected ? Colors.primary.uiColor : .clear
     }
 }
 
 extension FilterCell: ViewConfiguration {
-    public func configViews() {}
+    public func configViews() {
+        translatesAutoresizingMaskIntoConstraints = false
+    }
 
     public func buildViews() {
         contentView.addSubview(titleLabel)
