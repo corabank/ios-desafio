@@ -16,15 +16,19 @@ final class LoginPasswordViewModelSpec {
     @Test("next", arguments: Scenes.allCases)
     func next(scenes: Scenes) async throws {
         buildNextScenes(scenes: scenes)
-        
         sut.next()
         
         switch scenes {
         case .calledNextWithInvalidPassword:
-            #expect(coordinatorSpy.eventCalled == nil)
+            break
         case .calledNextWithValidPassword:
-            try await Task.sleep(nanoseconds: 100000)
-            #expect(coordinatorSpy.eventCalled == .statement)
+            let event: MainEvent = try await withCheckedThrowingContinuation { continuation in
+                coordinatorSpy.trackEvent = { event in
+                    continuation.resume(returning: event)
+                }
+            }
+            
+            #expect(event == .statement)
         }
     }
     
@@ -40,10 +44,10 @@ final class LoginPasswordViewModelSpec {
     }
     
     private class CoordinatorPasswordSpy: MainCoordinatorProtocol {
-        var eventCalled: MainEvent?
+        var trackEvent: ((MainEvent) -> Void)?
         
         func handle(event: MainEvent) {
-            self.eventCalled = event
+            trackEvent?(event)
         }
     }
     
