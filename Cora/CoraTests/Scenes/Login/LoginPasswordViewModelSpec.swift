@@ -8,6 +8,7 @@ final class LoginPasswordViewModelSpec {
     private lazy var serviceSpy = LoginServiceSpy()
     private lazy var sut = LoginPasswordViewModel(coordinator: self.coordinatorSpy,
                                                   service: self.serviceSpy)
+    private var errorCalledCount: Int = 0
     
     enum Scenes: String, CaseIterable {
         case calledNextWithInvalidPassword, calledNextWithValidPassword
@@ -20,7 +21,13 @@ final class LoginPasswordViewModelSpec {
         
         switch scenes {
         case .calledNextWithInvalidPassword:
-            break
+            let event: Int = try await withCheckedThrowingContinuation { continuation in
+                errorCalledCount += 1
+                continuation.resume(returning: errorCalledCount)
+            }
+            
+            #expect(event == 1)
+            
         case .calledNextWithValidPassword:
             let event: MainEvent = try await withCheckedThrowingContinuation { continuation in
                 coordinatorSpy.trackEvent = { event in
