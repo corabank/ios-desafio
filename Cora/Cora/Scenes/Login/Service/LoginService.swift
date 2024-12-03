@@ -5,13 +5,13 @@ import Foundation
 protocol LoginServiceProtocol {
     func saveData(data: String, key: String)
     func getData(key: String) -> String
-    
     func login() async -> AuthResponse?
 }
 
 enum LoginServiceFactory {
-    static func build() -> LoginServiceProtocol {
-        LoginService()
+    static func build(localRepository: LocalDataSourceProtocol = LocalDataSource(),
+                      apiClient: ApiClientProtocol = ApiClientFactory.build()) -> LoginServiceProtocol {
+        LoginService(localRepository: localRepository, apiClient: apiClient)
     }
 }
 
@@ -23,9 +23,10 @@ private final class LoginService: LoginServiceProtocol {
     var localRepository: LocalDataSourceProtocol
     var apiClient: ApiClientProtocol
     
-    init(localRepository: LocalDataSourceProtocol = LocalDataSource()) {
+    init(localRepository: LocalDataSourceProtocol,
+         apiClient: ApiClientProtocol) {
         self.localRepository = localRepository
-        self.apiClient = ApiClientFactory.build()
+        self.apiClient = apiClient
     }
     
     func saveData(data: String, key: String) {
