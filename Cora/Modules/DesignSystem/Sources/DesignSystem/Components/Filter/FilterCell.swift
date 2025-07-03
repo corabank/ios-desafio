@@ -3,8 +3,6 @@ import UIKit
 public final class FilterCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 14)
-        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -26,7 +24,7 @@ public final class FilterCell: UICollectionViewCell {
 
     func setTitle(with title: String, isSelected: Bool) {
         titleLabel.text = title
-        print("Configuração da célula com título: \(title)")
+        
         titleLabel.font = isSelected ? UIFont.designFont(size: .bodyTwo, weight: .bold) : UIFont.designFont(size: .bodyTwo, weight: .regular)
         titleLabel.textColor = isSelected ? Colors.primary.uiColor : Colors.grayOne.uiColor
         selectionIndicator.backgroundColor = isSelected ? Colors.primary.uiColor : .clear
@@ -34,9 +32,7 @@ public final class FilterCell: UICollectionViewCell {
 }
 
 extension FilterCell: ViewConfiguration {
-    public func configViews() {
-        translatesAutoresizingMaskIntoConstraints = false
-    }
+    public func configViews() {}
 
     public func buildViews() {
         contentView.addSubview(titleLabel)
@@ -52,6 +48,7 @@ extension FilterCell: ViewConfiguration {
 
             selectionIndicator.heightAnchor.constraint(equalToConstant: 1),
             selectionIndicator.widthAnchor.constraint(equalTo: titleLabel.widthAnchor),
+            selectionIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             selectionIndicator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }

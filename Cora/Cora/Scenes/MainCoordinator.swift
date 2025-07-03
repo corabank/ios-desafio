@@ -19,7 +19,7 @@ final class MainCoordinator: MainCoordinatorProtocol {
     init(window: UIWindow) {
         self.window = window
         
-        navigation = UINavigationController(rootViewController: IntroViewController(coordinator: self))
+        navigation = UINavigationController(rootViewController: /*IntroViewController(coordinator: self)*/StatementViewController())
     }
     
     func handle(event: MainEvent) {

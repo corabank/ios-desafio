@@ -1,7 +1,7 @@
 import UIKit
 
 public enum Icons: String {
-    case icArrowDown = "ic_arrow-down",
+    case icArrowDownIn = "ic_arrow-down-in",
          icArrowReturn = "ic_arrow-return",
          icArrowRight = "ic_arrow-right",
          icArrowUpOut = "ic_arrow-up-out",
